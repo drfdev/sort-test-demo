@@ -1,4 +1,4 @@
 package def.drf.sort.demo;
 
-public interface Snapshot {
+public interface Snapshot<T> {
 }
