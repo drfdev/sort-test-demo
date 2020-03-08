@@ -7,5 +7,5 @@ import java.util.List;
 public interface Snapshoter<T> {
     List<Snapshot<T>> getSnaps();
 
-    List<Metric<T>> getMetrics();
+    List<Metric<?>> getMetrics();
 }

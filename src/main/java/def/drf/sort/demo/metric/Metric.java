@@ -1,4 +1,5 @@
 package def.drf.sort.demo.metric;
 
-public interface Metric<T> {
+public interface Metric<V> {
+    V getValue();
 }
