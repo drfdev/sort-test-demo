@@ -4,4 +4,5 @@ import java.util.List;
 
 public interface Snapshoter<T> {
     List<Snapshot<T>> getSnaps();
+    void snapshot(List<T> values);
 }
