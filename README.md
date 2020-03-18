@@ -20,7 +20,7 @@ Algorithms:
 * Selection sort
 * Cubesort
 * Shell sort
-* Bubble sort
+* (+) Bubble sort
 * Binary tree sort
 * Cycle sort
 * Library sort
