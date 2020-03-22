@@ -6,14 +6,14 @@ import def.drf.sort.demo.metric.simple.SimpleMetricBucket;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 import static def.drf.sort.demo.sort.comparison.QuickSort.PartitionScheme.HOARE;
 import static def.drf.sort.demo.sort.comparison.QuickSort.PartitionScheme.LOMUTO;
+import static def.drf.sort.demo.utils.AssertUtils.assertNaturalOrder;
 import static def.drf.sort.demo.utils.RandomGenerator.newListWithRandomValues;
-import static org.junit.Assert.assertEquals;
+import static def.drf.sort.demo.utils.TestUtils.*;
 
 public class QuickSortTest {
     private QuickSort sort;
@@ -27,92 +27,30 @@ public class QuickSortTest {
     public void testSort_withLomutoPartitionScheme() {
         sort = new QuickSort(LOMUTO);
 
-        List<Integer> values = new ArrayList<>() {{
-            add(5);
-            add(3);
-            add(1);
-            add(2);
-            add(4);
-            add(10);
-            add(8);
-            add(7);
-            add(9);
-            add(6);
-        }};
+        List<Integer> values = newTestSort();
 
         sort.sort(values, Comparator.naturalOrder());
 
-        assertEquals(Integer.valueOf(1), values.get(0));
-        assertEquals(Integer.valueOf(2), values.get(1));
-        assertEquals(Integer.valueOf(3), values.get(2));
-        assertEquals(Integer.valueOf(4), values.get(3));
-        assertEquals(Integer.valueOf(5), values.get(4));
-        assertEquals(Integer.valueOf(6), values.get(5));
-        assertEquals(Integer.valueOf(7), values.get(6));
-        assertEquals(Integer.valueOf(8), values.get(7));
-        assertEquals(Integer.valueOf(9), values.get(8));
-        assertEquals(Integer.valueOf(10), values.get(9));
+        assertNaturalOrder(values);
     }
 
     @Test
     public void testSort_withHoarePartitionScheme() {
         sort = new QuickSort(HOARE);
 
-        List<Integer> values = new ArrayList<>() {{
-            add(5);
-            add(3);
-            add(1);
-            add(2);
-            add(4);
-            add(10);
-            add(8);
-            add(7);
-            add(9);
-            add(6);
-        }};
+        List<Integer> values = newTestSort();
 
         sort.sort(values, Comparator.naturalOrder());
 
-        assertEquals(Integer.valueOf(1), values.get(0));
-        assertEquals(Integer.valueOf(2), values.get(1));
-        assertEquals(Integer.valueOf(3), values.get(2));
-        assertEquals(Integer.valueOf(4), values.get(3));
-        assertEquals(Integer.valueOf(5), values.get(4));
-        assertEquals(Integer.valueOf(6), values.get(5));
-        assertEquals(Integer.valueOf(7), values.get(6));
-        assertEquals(Integer.valueOf(8), values.get(7));
-        assertEquals(Integer.valueOf(9), values.get(8));
-        assertEquals(Integer.valueOf(10), values.get(9));
+        assertNaturalOrder(values);
     }
 
     @Test
     public void testIteration_withLomutoPartitionScheme() {
         sort = new QuickSort(LOMUTO);
 
-        List<Integer> natural = new ArrayList<>() {{
-            add(1);
-            add(2);
-            add(3);
-            add(4);
-            add(5);
-            add(6);
-            add(7);
-            add(8);
-            add(9);
-            add(10);
-        }};
-        List<Integer> reverse = new ArrayList<>() {{
-            add(10);
-            add(9);
-            add(8);
-            add(7);
-            add(6);
-            add(5);
-            add(4);
-            add(3);
-            add(2);
-            add(1);
-        }};
+        List<Integer> natural = newNaturalOrder();
+        List<Integer> reverse = newReverseOrder();
 
         SimpleMetricBucket bucketNatural = SimpleMetricBucket.builder()
                 .addMetric(new IterationCountMetric())
@@ -130,57 +68,16 @@ public class QuickSortTest {
         System.out.println("Natural count: " + naturalCount.getValue()); // 54
         System.out.println("Reverse count: " + reverseCount.getValue()); // 29
 
-        assertEquals(Integer.valueOf(1), natural.get(0));
-        assertEquals(Integer.valueOf(2), natural.get(1));
-        assertEquals(Integer.valueOf(3), natural.get(2));
-        assertEquals(Integer.valueOf(4), natural.get(3));
-        assertEquals(Integer.valueOf(5), natural.get(4));
-        assertEquals(Integer.valueOf(6), natural.get(5));
-        assertEquals(Integer.valueOf(7), natural.get(6));
-        assertEquals(Integer.valueOf(8), natural.get(7));
-        assertEquals(Integer.valueOf(9), natural.get(8));
-        assertEquals(Integer.valueOf(10), natural.get(9));
-
-        assertEquals(Integer.valueOf(1), reverse.get(0));
-        assertEquals(Integer.valueOf(2), reverse.get(1));
-        assertEquals(Integer.valueOf(3), reverse.get(2));
-        assertEquals(Integer.valueOf(4), reverse.get(3));
-        assertEquals(Integer.valueOf(5), reverse.get(4));
-        assertEquals(Integer.valueOf(6), reverse.get(5));
-        assertEquals(Integer.valueOf(7), reverse.get(6));
-        assertEquals(Integer.valueOf(8), reverse.get(7));
-        assertEquals(Integer.valueOf(9), reverse.get(8));
-        assertEquals(Integer.valueOf(10), reverse.get(9));
+        assertNaturalOrder(natural);
+        assertNaturalOrder(reverse);
     }
 
     @Test
     public void testIteration_withHoarePartitionScheme() {
         sort = new QuickSort(HOARE);
 
-        List<Integer> natural = new ArrayList<>() {{
-            add(1);
-            add(2);
-            add(3);
-            add(4);
-            add(5);
-            add(6);
-            add(7);
-            add(8);
-            add(9);
-            add(10);
-        }};
-        List<Integer> reverse = new ArrayList<>() {{
-            add(10);
-            add(9);
-            add(8);
-            add(7);
-            add(6);
-            add(5);
-            add(4);
-            add(3);
-            add(2);
-            add(1);
-        }};
+        List<Integer> natural = newNaturalOrder();
+        List<Integer> reverse = newReverseOrder();
 
         SimpleMetricBucket bucketNatural = SimpleMetricBucket.builder()
                 .addMetric(new IterationCountMetric())
@@ -198,60 +95,53 @@ public class QuickSortTest {
         System.out.println("Natural count: " + naturalCount.getValue()); // 28
         System.out.println("Reverse count: " + reverseCount.getValue()); // 33
 
-        assertEquals(Integer.valueOf(1), natural.get(0));
-        assertEquals(Integer.valueOf(2), natural.get(1));
-        assertEquals(Integer.valueOf(3), natural.get(2));
-        assertEquals(Integer.valueOf(4), natural.get(3));
-        assertEquals(Integer.valueOf(5), natural.get(4));
-        assertEquals(Integer.valueOf(6), natural.get(5));
-        assertEquals(Integer.valueOf(7), natural.get(6));
-        assertEquals(Integer.valueOf(8), natural.get(7));
-        assertEquals(Integer.valueOf(9), natural.get(8));
-        assertEquals(Integer.valueOf(10), natural.get(9));
-
-        assertEquals(Integer.valueOf(1), reverse.get(0));
-        assertEquals(Integer.valueOf(2), reverse.get(1));
-        assertEquals(Integer.valueOf(3), reverse.get(2));
-        assertEquals(Integer.valueOf(4), reverse.get(3));
-        assertEquals(Integer.valueOf(5), reverse.get(4));
-        assertEquals(Integer.valueOf(6), reverse.get(5));
-        assertEquals(Integer.valueOf(7), reverse.get(6));
-        assertEquals(Integer.valueOf(8), reverse.get(7));
-        assertEquals(Integer.valueOf(9), reverse.get(8));
-        assertEquals(Integer.valueOf(10), reverse.get(9));
+        assertNaturalOrder(natural);
+        assertNaturalOrder(reverse);
     }
 
     @Test
     public void testWithBigArray_withLomutoPartitionScheme() {
         sort = new QuickSort(LOMUTO);
 
-        List<Integer> values = newListWithRandomValues(1000);
+        final int count = 100;
+        double summer = 0;
 
-        SimpleMetricBucket bucket = SimpleMetricBucket.builder()
-                .addMetric(new IterationCountMetric())
-                .build();
+        for (int i = 0; i < count; i++) {
+            List<Integer> values = newListWithRandomValues(1000);
 
-        sort.sort(values, Comparator.naturalOrder(), bucket);
+            SimpleMetricBucket bucket = SimpleMetricBucket.builder()
+                    .addMetric(new IterationCountMetric())
+                    .build();
 
-        Metric<?> counter = bucket.getMetrics().get(0);
-        System.out.println("Array size: 1000");
-        System.out.println("Iteration count: " + counter.getValue()); // ~5680
+            sort.sort(values, Comparator.naturalOrder(), bucket);
+
+            Metric<Integer> counter = (Metric<Integer>) bucket.getMetrics().get(0);
+            summer += counter.getValue();
+        }
+        System.out.println("Array size: 1000, times: 100");
+        System.out.println("Iteration count: " + summer / count); // ~6034.9
     }
 
     @Test
     public void testWithBigArray_withHoarePartitionScheme() {
         sort = new QuickSort(HOARE);
 
-        List<Integer> values = newListWithRandomValues(1000);
+        final int count = 100;
+        double summer = 0;
 
-        SimpleMetricBucket bucket = SimpleMetricBucket.builder()
-                .addMetric(new IterationCountMetric())
-                .build();
+        for (int i = 0; i < count; i++) {
+            List<Integer> values = newListWithRandomValues(1000);
 
-        sort.sort(values, Comparator.naturalOrder(), bucket);
+            SimpleMetricBucket bucket = SimpleMetricBucket.builder()
+                    .addMetric(new IterationCountMetric())
+                    .build();
 
-        Metric<?> counter = bucket.getMetrics().get(0);
-        System.out.println("Array size: 1000");
-        System.out.println("Iteration count: " + counter.getValue()); // ~6050
+            sort.sort(values, Comparator.naturalOrder(), bucket);
+
+            Metric<Integer> counter = (Metric<Integer>) bucket.getMetrics().get(0);
+            summer += counter.getValue();
+        }
+        System.out.println("Array size: 1000, times: 100");
+        System.out.println("Iteration count: " + summer / count); // ~5717.75
     }
 }

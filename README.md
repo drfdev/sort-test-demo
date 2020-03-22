@@ -62,8 +62,8 @@ see also: https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorith
 
 ---
 
-_Results with random array:_
+_Averaged results with random array:_
 
-1) Quicksort: 5500 ~ 6000
-2) Bubble sort: ~250.000
+1) Quicksort: 5500 ~5717.75 / ~6034.9
+2) Bubble sort: ~249453.17
 
