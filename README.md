@@ -15,12 +15,12 @@ Algorithms:
 * Heapsort
 * Insertion sort
 * Block sort
-* Quadsort 
+* **Quadsort** 
 * Timsort
 * Selection sort
 * Cubesort
 * Shell sort
-* (+) Bubble sort
+* **Bubble sort**
 * Binary tree sort
 * Cycle sort
 * Library sort
