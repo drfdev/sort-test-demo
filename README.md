@@ -8,14 +8,14 @@ Algorithms:
 
 **Comparison sorts:**
 
-* Quicksort
+* **Quicksort**
 * Merge sort
 * In-place merge sort
 * Introsort
 * Heapsort
 * Insertion sort
 * Block sort
-* **Quadsort** 
+* Quadsort 
 * Timsort
 * Selection sort
 * Cubesort
