@@ -9,7 +9,7 @@ Algorithms:
 **Comparison sorts:**
 
 * **Quicksort**
-* Merge sort
+* **Merge sort**
 * In-place merge sort
 * Introsort
 * Heapsort
@@ -64,6 +64,7 @@ see also: https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorith
 
 _Averaged results with random array:_
 
-1) Quicksort: 5500 ~5717.75 / ~6034.9
-2) Bubble sort: ~249453.17
+1) Quicksort: ~5717.75 / ~6034.9
+2) Merge sort: ~9976.0 / ~20000.0
+3) Bubble sort: ~249453.17
 

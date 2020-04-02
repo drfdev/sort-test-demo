@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import static java.lang.Math.min;
+
 public final class MergeSort implements Sorter {
     public enum Implementation {
         TOP_DOWN, BOTTOM_UP
@@ -31,7 +33,9 @@ public final class MergeSort implements Sorter {
             return;
         }
         if (implementation == Implementation.BOTTOM_UP) {
-            // TODO
+            final int n = values.size();
+            List<T> copy = new ArrayList<>(values);
+            bottomUpMergeSort(copy, values, n, comparator, snapshoter, metrics);
             return;
         }
 
@@ -82,6 +86,43 @@ public final class MergeSort implements Sorter {
 
         if (snapshoter != null) {
             snapshoter.snapshot(toList);
+        }
+    }
+
+    private <T> void bottomUpMergeSort(List<T> a, List<T> b, int n,
+                                       Comparator<T> comparator, Snapshoter<T> snapshoter, MetricBucket metrics) {
+        for (int width = 1; width < n; width = 2 * width) {
+            for (int i = 0; i < n; i = i + 2 * width) {
+                bottomUpMerge(a, i, min(i+width, n), min(i+2*width, n), b,
+                        comparator, snapshoter, metrics);
+            }
+            copyArray(b, a, n, snapshoter, metrics);
+        }
+    }
+
+    private <T> void bottomUpMerge(List<T> a, int left, int right, int end, List<T> b,
+                                   Comparator<T> comparator, Snapshoter<T> snapshoter, MetricBucket metrics) {
+        int i = left;
+        int j = right;
+        for (int k = left; k < end; k++) {
+            if (i < right && (j >= end || comparator.compare(a.get(i), a.get(j)) <= 0)) {
+//                b.set(k, a.get(i));
+                update(a, b, i, k, snapshoter, metrics);
+                i = i + 1;
+            } else {
+//                b.set(k, a.get(j));
+                update(a, b, j, k, snapshoter, metrics);
+                j = j + 1;
+            }
+        }
+    }
+
+    private <T> void copyArray(List<T> b, List<T> a, int n,
+                               Snapshoter<T> snapshoter, MetricBucket metrics) {
+        for (int i = 0; i < n; i++) {
+//            a.set(i, b.get(i));
+            update(b, a, i, i, snapshoter, metrics);
+            // x2 iteration count, wtf ?
         }
     }
 }
