@@ -119,7 +119,7 @@ public class QuickSortTest {
             summer += counter.getValue();
         }
         System.out.println("Array size: 1000, times: 100");
-        System.out.println("Iteration count: " + summer / count); // ~6034.9
+        System.out.println("Swap count: " + summer / count); // ~6034.9
     }
 
     @Test
@@ -142,6 +142,6 @@ public class QuickSortTest {
             summer += counter.getValue();
         }
         System.out.println("Array size: 1000, times: 100");
-        System.out.println("Iteration count: " + summer / count); // ~5717.75
+        System.out.println("Swap count: " + summer / count); // ~5717.75
     }
 }

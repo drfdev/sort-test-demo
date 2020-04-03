@@ -65,7 +65,7 @@ public class MergeSortTest {
             summer += counter.getValue();
         }
         System.out.println("Array size: 1000, times: 100");
-        System.out.println("Iteration count: " + summer / count); // ~9976.0
+        System.out.println("Swap count: " + summer / count); // ~9976.0
     }
 
     @Test
@@ -88,6 +88,6 @@ public class MergeSortTest {
             summer += counter.getValue();
         }
         System.out.println("Array size: 1000, times: 100");
-        System.out.println("Iteration count: " + summer / count); // ~20000.0
+        System.out.println("Swap count: " + summer / count); // ~20000.0
     }
 }

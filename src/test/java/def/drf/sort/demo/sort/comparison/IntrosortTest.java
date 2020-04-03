@@ -10,10 +10,10 @@ import java.util.List;
 
 import static def.drf.sort.demo.utils.AssertUtils.assertNaturalOrder;
 import static def.drf.sort.demo.utils.RandomGenerator.newListWithRandomValues;
-import static def.drf.sort.demo.utils.TestUtils.*;
+import static def.drf.sort.demo.utils.TestUtils.newTestSort;
 
-public class BubbleSortTest {
-    private BubbleSort sort = new BubbleSort();
+public class IntrosortTest {
+    private Introsort sort = new Introsort();
 
     @Test
     public void testSort() {
@@ -22,31 +22,6 @@ public class BubbleSortTest {
         sort.sort(values, Comparator.naturalOrder());
 
         assertNaturalOrder(values);
-    }
-
-    @Test
-    public void testIteration() {
-        List<Integer> natural = newNaturalOrder();
-        List<Integer> reverse = newReverseOrder();
-
-        SimpleMetricBucket bucketNatural = SimpleMetricBucket.builder()
-                .addMetric(new IterationCountMetric())
-                .build();
-        SimpleMetricBucket bucketReverse = SimpleMetricBucket.builder()
-                .addMetric(new IterationCountMetric())
-                .build();
-
-        sort.sort(natural, Comparator.naturalOrder(), bucketNatural);
-        sort.sort(reverse, Comparator.naturalOrder(), bucketReverse);
-
-        Metric<?> naturalCount = bucketNatural.getMetrics().get(0);
-        Metric<?> reverseCount = bucketReverse.getMetrics().get(0);
-
-        System.out.println("Natural count: " + naturalCount.getValue()); // 0
-        System.out.println("Reverse count: " + reverseCount.getValue()); // 45
-
-        assertNaturalOrder(natural);
-        assertNaturalOrder(reverse);
     }
 
     @Test
@@ -67,6 +42,6 @@ public class BubbleSortTest {
             summer += counter.getValue();
         }
         System.out.println("Array size: 1000, times: 100");
-        System.out.println("Swap count: " + summer / count); // ~249453.17
+        System.out.println("Swap count: " + summer / count); // ~2701.26
     }
 }
