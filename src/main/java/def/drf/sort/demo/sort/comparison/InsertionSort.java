@@ -12,7 +12,6 @@ import java.util.List;
 public final class InsertionSort implements Sorter {
     @Override
     public <T> void sort(@NotNull List<T> values, @NotNull Comparator<T> comparator, @Nullable Snapshoter<T> snapshoter, @Nullable MetricBucket metrics) {
-        /* https://en.wikipedia.org/wiki/Introsort */
         // TODO
     }
 }
