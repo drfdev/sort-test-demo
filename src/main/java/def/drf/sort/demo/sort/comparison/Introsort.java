@@ -1,6 +1,6 @@
 package def.drf.sort.demo.sort.comparison;
 
-import def.drf.sort.demo.Sorter;
+import def.drf.sort.demo.AbstractSorter;
 import def.drf.sort.demo.metric.MetricBucket;
 import def.drf.sort.demo.snap.Snapshoter;
 import org.jetbrains.annotations.NotNull;
@@ -9,51 +9,57 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Comparator;
 import java.util.List;
 
-public final class Introsort implements Sorter {
-    @Override
-    public <T> void sort(@NotNull List<T> values, @NotNull Comparator<T> comparator, @Nullable Snapshoter<T> snapshoter, @Nullable MetricBucket metrics) {
-        /* https://en.wikipedia.org/wiki/Introsort */
-        int depth = (int) (2 * Math.log(values.size()));
-        introsort(values, depth, 0, values.size() - 1, comparator, snapshoter, metrics);
+public final class Introsort<T> extends AbstractSorter<T> {
+    public Introsort(@NotNull Comparator<T> comparator) {
+        super(comparator);
     }
 
-    private <T> void introsort(List<T> values, int depth, int start, int end,
-                               Comparator<T> comparator, Snapshoter<T> snapshoter, MetricBucket metrics) {
+    public Introsort(@NotNull Comparator<T> comparator,
+                     @Nullable MetricBucket metrics) {
+        super(comparator, metrics);
+    }
+
+    public Introsort(@NotNull Comparator<T> comparator,
+                     @Nullable Snapshoter<T> snapshoter,
+                     @Nullable MetricBucket metrics) {
+        super(comparator, snapshoter, metrics);
+    }
+
+    @Override
+    public void sort(@NotNull List<T> values) {
+        /* https://en.wikipedia.org/wiki/Introsort */
+        int depth = (int) (2 * Math.log(values.size()));
+        introsort(values, depth, 0, values.size() - 1);
+    }
+
+    private void introsort(List<T> values, int depth, int start, int end) {
         int length = values.size();
         if (length <= 1) {
             return;
         } else if (depth == 0) {
-            heapSort(values, start, end,
-                    comparator, snapshoter, metrics);
+            heapSort(values, start, end);
         } else {
             if (start >= end) {
                 return;
             }
             T pivot = values.get((start + end) / 2);
-            int index = partition(values, start, end, pivot,
-                    comparator, snapshoter, metrics);
-            introsort(values, depth - 1, start, index - 1,
-                    comparator, snapshoter, metrics);
-            introsort(values, depth - 1, index, end,
-                    comparator, snapshoter, metrics);
+            int index = partition(values, start, end, pivot);
+            introsort(values, depth - 1, start, index - 1);
+            introsort(values, depth - 1, index, end);
         }
     }
 
-    private <T> void heapSort(List<T> values, int start, int end,
-                              Comparator<T> comparator, Snapshoter<T> snapshoter, MetricBucket metrics) {
+    private void heapSort(List<T> values, int start, int end) {
         for (int i = end / 2 - 1; i >= start; i--) {
-            heapify(values, end, i,
-                    comparator, snapshoter, metrics);
+            heapify(values, end, i);
         }
         for (int i = end - 1; i >= start; i--) {
-            swap(values, start, i, snapshoter, metrics);
-            heapify(values, i, start,
-                    comparator, snapshoter, metrics);
+            swap(values, start, i);
+            heapify(values, i, start);
         }
     }
 
-    private <T> void heapify(List<T> values, int n, int i,
-                             Comparator<T> comparator, Snapshoter<T> snapshoter, MetricBucket metrics) {
+    private void heapify(List<T> values, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;
         int r = 2 * i + 2;
@@ -64,14 +70,12 @@ public final class Introsort implements Sorter {
             largest = r;
         }
         if (largest != i) {
-            swap(values, i, largest, snapshoter, metrics);
-            heapify(values, n, largest,
-                    comparator, snapshoter, metrics);
+            swap(values, i, largest);
+            heapify(values, n, largest);
         }
     }
 
-    private <T> int partition(List<T> values, int start, int end, T pivot,
-                            Comparator<T> comparator, Snapshoter<T> snapshoter, MetricBucket metrics) {
+    private int partition(List<T> values, int start, int end, T pivot) {
         while (start <= end) {
             while (comparator.compare(values.get(start), pivot) < 0) {
                 start++;
@@ -80,7 +84,7 @@ public final class Introsort implements Sorter {
                 end--;
             }
             if (start <= end) {
-                swap(values, start, end, snapshoter, metrics);
+                swap(values, start, end);
                 start++;
                 end--;
             }

@@ -13,13 +13,14 @@ import static def.drf.sort.demo.utils.RandomGenerator.newListWithRandomValues;
 import static def.drf.sort.demo.utils.TestUtils.*;
 
 public class BubbleSortTest {
-    private BubbleSort sort = new BubbleSort();
+    private BubbleSort<Integer> sort;
 
     @Test
     public void testSort() {
+        sort = new BubbleSort<Integer>(Comparator.naturalOrder());
         List<Integer> values = newTestSort();
 
-        sort.sort(values, Comparator.naturalOrder());
+        sort.sort(values);
 
         assertNaturalOrder(values);
     }
@@ -35,9 +36,10 @@ public class BubbleSortTest {
         SimpleMetricBucket bucketReverse = SimpleMetricBucket.builder()
                 .addMetric(new IterationCountMetric())
                 .build();
+        sort = new BubbleSort<Integer>(Comparator.naturalOrder(), bucketNatural);
 
-        sort.sort(natural, Comparator.naturalOrder(), bucketNatural);
-        sort.sort(reverse, Comparator.naturalOrder(), bucketReverse);
+        sort.sort(natural);
+        sort.sort(reverse);
 
         Metric<?> naturalCount = bucketNatural.getMetrics().get(0);
         Metric<?> reverseCount = bucketReverse.getMetrics().get(0);
@@ -60,8 +62,9 @@ public class BubbleSortTest {
             SimpleMetricBucket bucket = SimpleMetricBucket.builder()
                     .addMetric(new IterationCountMetric())
                     .build();
+            sort = new BubbleSort<Integer>(Comparator.naturalOrder(), bucket);
 
-            sort.sort(values, Comparator.naturalOrder(), bucket);
+            sort.sort(values);
 
             Metric<Integer> counter = (Metric<Integer>) bucket.getMetrics().get(0);
             summer += counter.getValue();

@@ -13,13 +13,14 @@ import static def.drf.sort.demo.utils.RandomGenerator.newListWithRandomValues;
 import static def.drf.sort.demo.utils.TestUtils.newTestSort;
 
 public class IntrosortTest {
-    private Introsort sort = new Introsort();
+    private Introsort<Integer> sort;
 
     @Test
     public void testSort() {
+        sort = new Introsort<Integer>(Comparator.naturalOrder());
         List<Integer> values = newTestSort();
 
-        sort.sort(values, Comparator.naturalOrder());
+        sort.sort(values);
 
         assertNaturalOrder(values);
     }
@@ -35,8 +36,9 @@ public class IntrosortTest {
             SimpleMetricBucket bucket = SimpleMetricBucket.builder()
                     .addMetric(new IterationCountMetric())
                     .build();
+            sort = new Introsort<Integer>(Comparator.naturalOrder(), bucket);
 
-            sort.sort(values, Comparator.naturalOrder(), bucket);
+            sort.sort(values);
 
             Metric<Integer> counter = (Metric<Integer>) bucket.getMetrics().get(0);
             summer += counter.getValue();

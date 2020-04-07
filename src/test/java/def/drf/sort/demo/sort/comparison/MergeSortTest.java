@@ -16,7 +16,7 @@ import static def.drf.sort.demo.utils.RandomGenerator.newListWithRandomValues;
 import static def.drf.sort.demo.utils.TestUtils.newTestSort;
 
 public class MergeSortTest {
-    private MergeSort sort;
+    private MergeSort<Integer> sort;
 
     @Before
     public void before() {
@@ -25,30 +25,28 @@ public class MergeSortTest {
 
     @Test
     public void testSort_withTopDownImplementation() {
-        sort = new MergeSort(TOP_DOWN);
+        sort = new MergeSort<Integer>(TOP_DOWN, Comparator.naturalOrder());
 
         List<Integer> values = newTestSort();
 
-        sort.sort(values, Comparator.naturalOrder());
+        sort.sort(values);
 
         assertNaturalOrder(values);
     }
 
     @Test
     public void testSort_withBottomUpImplementation() {
-        sort = new MergeSort(BOTTOM_UP);
+        sort = new MergeSort<Integer>(BOTTOM_UP, Comparator.naturalOrder());
 
         List<Integer> values = newTestSort();
 
-        sort.sort(values, Comparator.naturalOrder());
+        sort.sort(values);
 
         assertNaturalOrder(values);
     }
 
     @Test
     public void testWithBigArray_withTopDownImplementation() {
-        sort = new MergeSort(TOP_DOWN);
-
         final int count = 100;
         double summer = 0;
 
@@ -59,7 +57,8 @@ public class MergeSortTest {
                     .addMetric(new IterationCountMetric())
                     .build();
 
-            sort.sort(values, Comparator.naturalOrder(), bucket);
+            sort = new MergeSort<Integer>(TOP_DOWN, Comparator.naturalOrder(), bucket);
+            sort.sort(values);
 
             Metric<Integer> counter = (Metric<Integer>) bucket.getMetrics().get(0);
             summer += counter.getValue();
@@ -70,8 +69,6 @@ public class MergeSortTest {
 
     @Test
     public void testWithBigArray_withBottomUpImplementation() {
-        sort = new MergeSort(BOTTOM_UP);
-
         final int count = 100;
         double summer = 0;
 
@@ -81,8 +78,9 @@ public class MergeSortTest {
             SimpleMetricBucket bucket = SimpleMetricBucket.builder()
                     .addMetric(new IterationCountMetric())
                     .build();
+            sort = new MergeSort<Integer>(BOTTOM_UP, Comparator.naturalOrder(), bucket);
 
-            sort.sort(values, Comparator.naturalOrder(), bucket);
+            sort.sort(values);
 
             Metric<Integer> counter = (Metric<Integer>) bucket.getMetrics().get(0);
             summer += counter.getValue();

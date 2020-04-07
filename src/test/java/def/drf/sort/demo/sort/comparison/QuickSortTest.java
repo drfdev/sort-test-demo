@@ -16,7 +16,7 @@ import static def.drf.sort.demo.utils.RandomGenerator.newListWithRandomValues;
 import static def.drf.sort.demo.utils.TestUtils.*;
 
 public class QuickSortTest {
-    private QuickSort sort;
+    private QuickSort<Integer> sort;
 
     @Before
     public void before() {
@@ -25,30 +25,28 @@ public class QuickSortTest {
 
     @Test
     public void testSort_withLomutoPartitionScheme() {
-        sort = new QuickSort(LOMUTO);
+        sort = new QuickSort<Integer>(LOMUTO, Comparator.naturalOrder());
 
         List<Integer> values = newTestSort();
 
-        sort.sort(values, Comparator.naturalOrder());
+        sort.sort(values);
 
         assertNaturalOrder(values);
     }
 
     @Test
     public void testSort_withHoarePartitionScheme() {
-        sort = new QuickSort(HOARE);
+        sort = new QuickSort<Integer>(HOARE, Comparator.naturalOrder());
 
         List<Integer> values = newTestSort();
 
-        sort.sort(values, Comparator.naturalOrder());
+        sort.sort(values);
 
         assertNaturalOrder(values);
     }
 
     @Test
     public void testIteration_withLomutoPartitionScheme() {
-        sort = new QuickSort(LOMUTO);
-
         List<Integer> natural = newNaturalOrder();
         List<Integer> reverse = newReverseOrder();
 
@@ -59,8 +57,10 @@ public class QuickSortTest {
                 .addMetric(new IterationCountMetric())
                 .build();
 
-        sort.sort(natural, Comparator.naturalOrder(), bucketNatural);
-        sort.sort(reverse, Comparator.naturalOrder(), bucketReverse);
+        sort = new QuickSort<Integer>(LOMUTO, Comparator.naturalOrder(), bucketNatural);
+
+        sort.sort(natural);
+        sort.sort(reverse);
 
         Metric<?> naturalCount = bucketNatural.getMetrics().get(0);
         Metric<?> reverseCount = bucketReverse.getMetrics().get(0);
@@ -74,8 +74,6 @@ public class QuickSortTest {
 
     @Test
     public void testIteration_withHoarePartitionScheme() {
-        sort = new QuickSort(HOARE);
-
         List<Integer> natural = newNaturalOrder();
         List<Integer> reverse = newReverseOrder();
 
@@ -86,8 +84,10 @@ public class QuickSortTest {
                 .addMetric(new IterationCountMetric())
                 .build();
 
-        sort.sort(natural, Comparator.naturalOrder(), bucketNatural);
-        sort.sort(reverse, Comparator.naturalOrder(), bucketReverse);
+        sort = new QuickSort<Integer>(HOARE, Comparator.naturalOrder(), bucketNatural);
+
+        sort.sort(natural);
+        sort.sort(reverse);
 
         Metric<?> naturalCount = bucketNatural.getMetrics().get(0);
         Metric<?> reverseCount = bucketReverse.getMetrics().get(0);
@@ -101,8 +101,6 @@ public class QuickSortTest {
 
     @Test
     public void testWithBigArray_withLomutoPartitionScheme() {
-        sort = new QuickSort(LOMUTO);
-
         final int count = 100;
         double summer = 0;
 
@@ -113,7 +111,9 @@ public class QuickSortTest {
                     .addMetric(new IterationCountMetric())
                     .build();
 
-            sort.sort(values, Comparator.naturalOrder(), bucket);
+            sort = new QuickSort<Integer>(LOMUTO, Comparator.naturalOrder(), bucket);
+
+            sort.sort(values);
 
             Metric<Integer> counter = (Metric<Integer>) bucket.getMetrics().get(0);
             summer += counter.getValue();
@@ -124,8 +124,6 @@ public class QuickSortTest {
 
     @Test
     public void testWithBigArray_withHoarePartitionScheme() {
-        sort = new QuickSort(HOARE);
-
         final int count = 100;
         double summer = 0;
 
@@ -136,7 +134,9 @@ public class QuickSortTest {
                     .addMetric(new IterationCountMetric())
                     .build();
 
-            sort.sort(values, Comparator.naturalOrder(), bucket);
+            sort = new QuickSort<Integer>(HOARE, Comparator.naturalOrder(), bucket);
+
+            sort.sort(values);
 
             Metric<Integer> counter = (Metric<Integer>) bucket.getMetrics().get(0);
             summer += counter.getValue();
