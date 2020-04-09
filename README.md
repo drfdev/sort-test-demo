@@ -69,6 +69,7 @@ _Averaged swap count results with random array:_
 * Merge sort: ~9976.0 / ~20000.0
 * Bubble sort: ~249453.17
 
+---
 
 * Introsort: ~2701.26
 
