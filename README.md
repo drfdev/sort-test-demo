@@ -12,7 +12,7 @@ Algorithms:
 * **Merge sort**
 * In-place merge sort
 * **Introsort**
-* Heapsort
+* **Heapsort**
 * Insertion sort
 * Block sort
 * Quadsort 
@@ -65,6 +65,7 @@ see also: https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorith
 _Averaged swap count results with random array:_
 
 * Quicksort: ~5717.75 / ~6034.9
+* HeapSort: ~9082.9
 * Merge sort: ~9976.0 / ~20000.0
 * Bubble sort: ~249453.17
 
