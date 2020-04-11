@@ -27,6 +27,7 @@ public final class BlockSort<T> extends AbstractSorter<T> {
 
     @Override
     public void sort(@NotNull List<T> values) {
-        // TODO
+        /* https://en.wikipedia.org/wiki/Block_sort */
+        // TODO wtf ?
     }
 }
