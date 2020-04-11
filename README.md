@@ -70,6 +70,8 @@ _Averaged swap count results with random array:_
 * Bubble sort: ~249453.17
 * Insertion sort: ~251150.3
 
+Average number of swaps for a random array with size=1000 (times: 100)
+
 ---
 
 * Introsort: ~2701.26
