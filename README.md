@@ -13,7 +13,7 @@ Algorithms:
 * In-place merge sort
 * **Introsort**
 * **Heapsort**
-* Insertion sort
+* **Insertion sort**
 * Block sort
 * Quadsort 
 * Timsort
@@ -68,6 +68,7 @@ _Averaged swap count results with random array:_
 * HeapSort: ~9082.9
 * Merge sort: ~9976.0 / ~20000.0
 * Bubble sort: ~249453.17
+* Insertion sort: ~251150.3
 
 ---
 
