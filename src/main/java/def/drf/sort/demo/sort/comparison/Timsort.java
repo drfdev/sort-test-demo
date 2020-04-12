@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Comparator;
 import java.util.List;
 
-public class Timsort<T> extends AbstractSorter<T> {
+public final class Timsort<T> extends AbstractSorter<T> {
     private static final int RUN = 32;
 
     public Timsort(@NotNull Comparator<T> comparator) {
