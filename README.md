@@ -16,7 +16,7 @@ Algorithms:
 * **Insertion sort**
 * Block sort
 * Quadsort 
-* Timsort
+* **Timsort**
 * Selection sort
 * Cubesort
 * Shell sort
@@ -67,6 +67,7 @@ _Averaged swap count results with random array:_
 * Quicksort: ~5717.75 / ~6034.9
 * HeapSort: ~9082.9
 * Merge sort: ~9976.0 / ~20000.0
+* Timsort: ~13627.12
 * Bubble sort: ~249453.17
 * Insertion sort: ~251150.3
 

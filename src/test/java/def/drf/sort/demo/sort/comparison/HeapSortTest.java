@@ -3,6 +3,7 @@ package def.drf.sort.demo.sort.comparison;
 import def.drf.sort.demo.metric.IterationCountMetric;
 import def.drf.sort.demo.metric.Metric;
 import def.drf.sort.demo.metric.simple.SimpleMetricBucket;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Comparator;
@@ -14,6 +15,11 @@ import static def.drf.sort.demo.utils.TestUtils.newTestSort;
 
 public class HeapSortTest {
     private HeapSort<Integer> sort;
+
+    @Before
+    public void before() {
+        sort = null;
+    }
 
     @Test
     public void testSort() {

@@ -13,8 +13,8 @@ import static def.drf.sort.demo.utils.AssertUtils.assertNaturalOrder;
 import static def.drf.sort.demo.utils.RandomGenerator.newListWithRandomValues;
 import static def.drf.sort.demo.utils.TestUtils.newTestSort;
 
-public class InsertionSortTest {
-    private InsertionSort<Integer> sort;
+public class TimsortTest {
+    private Timsort<Integer> sort;
 
     @Before
     public void before() {
@@ -23,7 +23,7 @@ public class InsertionSortTest {
 
     @Test
     public void testSort() {
-        sort = new InsertionSort<Integer>(Comparator.naturalOrder());
+        sort = new Timsort<Integer>(Comparator.naturalOrder());
         List<Integer> values = newTestSort();
 
         sort.sort(values);
@@ -42,7 +42,7 @@ public class InsertionSortTest {
             SimpleMetricBucket bucket = SimpleMetricBucket.builder()
                     .addMetric(new IterationCountMetric())
                     .build();
-            sort = new InsertionSort<Integer>(Comparator.naturalOrder(), bucket);
+            sort = new Timsort<Integer>(Comparator.naturalOrder(), bucket);
 
             sort.sort(values);
 
