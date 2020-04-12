@@ -14,10 +14,10 @@ Algorithms:
 * **Introsort**
 * **Heapsort**
 * **Insertion sort**
-* Block sort
-* Quadsort 
+* ~~Block sort~~
+* ~~Quadsort~~ 
 * **Timsort**
-* Selection sort
+* **Selection sort**
 * Cubesort
 * Shell sort
 * **Bubble sort**
@@ -75,5 +75,8 @@ Average number of swaps for a random array with size=1000 (times: 100)
 
 ---
 
+Wtf metrics:
+
 * Introsort: ~2701.26
+* Selection sort: ~999.0
 
