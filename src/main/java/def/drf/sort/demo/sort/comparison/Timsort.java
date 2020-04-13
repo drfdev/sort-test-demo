@@ -52,11 +52,11 @@ public final class Timsort<T> extends AbstractSorter<T> {
             int j = i - 1;
             while (j >= left && comparator.compare(values.get(j), temp) > 0) {
 //                values.set(j + 1, values.get(j));
-                metric(values, j + 1, values.get(j), j);
+                setByIndex(values, j + 1, values.get(j), j);
                 j--;
             }
 //            values.set(j + 1, temp);
-            metric(values, j + 1, temp, i);
+            setByIndex(values, j + 1, temp, i);
         }
     }
 
@@ -81,11 +81,11 @@ public final class Timsort<T> extends AbstractSorter<T> {
         while (i < len1 && j < len2) {
             if (comparator.compare(left[i], right[j]) <= 0) {
 //                values.set(k, left.get(i));
-                metric(values, k, left[i], i);
+                setByIndex(values, k, left[i], i);
                 i++;
             } else {
 //                values.set(k, right.get(j));
-                metric(values, k, right[j], j);
+                setByIndex(values, k, right[j], j);
                 j++;
             }
             k++;
@@ -93,26 +93,16 @@ public final class Timsort<T> extends AbstractSorter<T> {
 
         while (i < len1) {
 //            values.set(k, left.get(i));
-            metric(values, k, left[i], i);
+            setByIndex(values, k, left[i], i);
             k++;
             i++;
         }
 
         while (j < len2) {
 //            values.set(k, right.get(j));
-            metric(values, k, right[j], j);
+            setByIndex(values, k, right[j], j);
             k++;
             j++;
-        }
-    }
-
-    private void metric(List<T> values, int index, T value, int valueIndex) {
-        if (metrics != null) {
-            metrics.metricsData(value, values.get(index), valueIndex, index);
-        }
-        values.set(index, value);
-        if (snapshoter != null) {
-            snapshoter.snapshot(values);
         }
     }
 }

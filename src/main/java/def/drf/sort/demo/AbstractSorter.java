@@ -45,4 +45,14 @@ public abstract class AbstractSorter<T> implements Sorter<T> {
             snapshoter.snapshot(values);
         }
     }
+
+    protected void setByIndex(List<T> values, int index, T value, int valueIndex) {
+        if (metrics != null) {
+            metrics.metricsData(value, values.get(index), valueIndex, index);
+        }
+        values.set(index, value);
+        if (snapshoter != null) {
+            snapshoter.snapshot(values);
+        }
+    }
 }

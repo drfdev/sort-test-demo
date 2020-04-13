@@ -36,21 +36,11 @@ public final class InsertionSort<T> extends AbstractSorter<T> {
 
             while (j >= 0 && comparator.compare(values.get(j), key) > 0) {
 //                values.set(j + 1, values.get(j));
-                metric(values, j + 1, values.get(j), keyIndex);
+                setByIndex(values, j + 1, values.get(j), j);
                 j = j - 1;
             }
 //            values.set(j + 1, key);
-            metric(values, j + 1, key, keyIndex);
-        }
-    }
-
-    private void metric(List<T> values, int index, T value, int valueIndex) {
-        if (metrics != null) {
-            metrics.metricsData(value, values.get(index), valueIndex, index);
-        }
-        values.set(index, value);
-        if (snapshoter != null) {
-            snapshoter.snapshot(values);
+            setByIndex(values, j + 1, key, keyIndex);
         }
     }
 }
