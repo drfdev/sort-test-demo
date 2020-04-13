@@ -27,6 +27,7 @@ public final class ShellSort<T> extends AbstractSorter<T> {
 
     @Override
     public void sort(@NotNull List<T> values) {
+        /* https://en.wikipedia.org/wiki/Shellsort */
         int n = values.size();
 
         for (int gap = n/2; gap > 0; gap /= 2) {
