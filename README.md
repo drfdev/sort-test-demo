@@ -21,7 +21,7 @@ Algorithms:
 * ~~Cubesort~~
 * **Shell sort**
 * **Bubble sort**
-* Binary tree sort
+* **Binary tree sort**
 * Cycle sort
 * Library sort
 * Patience sorting 
@@ -80,4 +80,5 @@ Wtf metrics:
 
 * Introsort: ~2701.26
 * Selection sort: ~999.0
+* Binary tree sort: ??
 
