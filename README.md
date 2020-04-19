@@ -27,7 +27,7 @@ Algorithms:
 * Patience sorting 
 * Smoothsort
 * **Strand sort**
-* Tournament sort
+* **Tournament sort**
 * Cocktail sort
 * Comb sort
 * Gnome sort
@@ -83,3 +83,4 @@ Wtf metrics:
 * Binary tree sort: ??
 * Cycle sort: ~998.53
 * Strand sort: ?? (~1000.0)
+* Tournament sort: ??
