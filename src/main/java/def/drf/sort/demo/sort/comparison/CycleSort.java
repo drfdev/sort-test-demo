@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Comparator;
 import java.util.List;
 
-public class CycleSort<T> extends AbstractSorter<T> {
+public final class CycleSort<T> extends AbstractSorter<T> {
     public CycleSort(@NotNull Comparator<T> comparator) {
         super(comparator);
     }

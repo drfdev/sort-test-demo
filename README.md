@@ -26,7 +26,7 @@ Algorithms:
 * Library sort
 * Patience sorting 
 * Smoothsort
-* Strand sort
+* **Strand sort**
 * Tournament sort
 * Cocktail sort
 * Comb sort
@@ -82,3 +82,4 @@ Wtf metrics:
 * Selection sort: ~999.0
 * Binary tree sort: ??
 * Cycle sort: ~998.53
+* Strand sort: ?? (~1000.0)
