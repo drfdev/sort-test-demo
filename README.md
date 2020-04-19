@@ -28,7 +28,7 @@ Algorithms:
 * Smoothsort
 * **Strand sort**
 * **Tournament sort**
-* Cocktail sort
+* **Cocktail sort**
 * Comb sort
 * Gnome sort
 * UnShuffle Sort
@@ -69,6 +69,7 @@ _Averaged swap count results with random array:_
 * Merge sort: ~9976.0 / ~20000.0
 * Timsort: ~13627.12
 * Shell sort: ~15521.32
+* Cocktail sort: ~248722.17
 * Bubble sort: ~249453.17
 * Insertion sort: ~251150.3
 
