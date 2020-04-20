@@ -29,7 +29,7 @@ Algorithms:
 * **Strand sort**
 * **Tournament sort**
 * **Cocktail sort**
-* Comb sort
+* **Comb sort**
 * Gnome sort
 * UnShuffle Sort
 * Franceschini's method
@@ -85,3 +85,4 @@ Wtf metrics:
 * Cycle sort: ~998.53
 * Strand sort: ?? (~1000.0)
 * Tournament sort: ??
+* Comb sort:~4324.78
