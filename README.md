@@ -30,9 +30,9 @@ Algorithms:
 * **Tournament sort**
 * **Cocktail sort**
 * **Comb sort**
-* Gnome sort
-* UnShuffle Sort
-* Franceschini's method
+* **Gnome sort**
+* ~~UnShuffle Sort~~
+* ~~Franceschini's method~~
 * Odd–even sort
 
 **Non-comparison sorts:**
@@ -70,6 +70,7 @@ _Averaged swap count results with random array:_
 * Timsort: ~13627.12
 * Shell sort: ~15521.32
 * Cocktail sort: ~248722.17
+* Gnome sort: ~248739.85
 * Bubble sort: ~249453.17
 * Insertion sort: ~251150.3
 
