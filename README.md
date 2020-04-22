@@ -37,7 +37,7 @@ Algorithms:
 
 **Non-comparison sorts:**
 
-* Pigeonhole sort
+* **Pigeonhole sort**
 * Bucket sort 
 * Counting sort
 * LSD Radix Sort
@@ -88,3 +88,4 @@ Wtf metrics:
 * Strand sort: ?? (~1000.0)
 * Tournament sort: ??
 * Comb sort:~4324.78
+* Pigeonhole sort: ?? (~1000.0)
