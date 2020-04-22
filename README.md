@@ -33,7 +33,7 @@ Algorithms:
 * **Gnome sort**
 * ~~UnShuffle Sort~~
 * ~~Franceschini's method~~
-* Odd–even sort
+* **Odd–even sort**
 
 **Non-comparison sorts:**
 
@@ -71,6 +71,7 @@ _Averaged swap count results with random array:_
 * Shell sort: ~15521.32
 * Cocktail sort: ~248722.17
 * Gnome sort: ~248739.85
+* Odd–even sort: ~249351.61
 * Bubble sort: ~249453.17
 * Insertion sort: ~251150.3
 
