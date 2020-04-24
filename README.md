@@ -38,7 +38,7 @@ Algorithms:
 **Non-comparison sorts:**
 
 * **Pigeonhole sort**
-* Bucket sort 
+* **Bucket sort** 
 * Counting sort
 * LSD Radix Sort
 * MSD Radix Sort
@@ -69,6 +69,7 @@ _Averaged swap count results with random array:_
 * Merge sort: ~9976.0 / ~20000.0
 * Timsort: ~13627.12
 * Shell sort: ~15521.32
+* Bucket sort: ~32697.2
 * Cocktail sort: ~248722.17
 * Gnome sort: ~248739.85
 * Odd–even sort: ~249351.61
