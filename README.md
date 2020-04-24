@@ -40,8 +40,9 @@ Algorithms:
 * **Pigeonhole sort**
 * **Bucket sort** 
 * **Counting sort**
-* LSD Radix Sort
-* MSD Radix Sort
+* ~~LSD Radix Sort~~
+* ~~MSD Radix Sort~~
+* **Radix Sort**
 * Spreadsort
 * Burstsort
 * Flashsort

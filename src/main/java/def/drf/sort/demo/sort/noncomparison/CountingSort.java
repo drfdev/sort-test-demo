@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Comparator;
 import java.util.List;
 
-public class CountingSort extends AbstractSorter<Character> {
+public final class CountingSort extends AbstractSorter<Character> {
     private static final int RANGE = 256;
 
     public CountingSort(@NotNull Comparator<Character> comparator) {

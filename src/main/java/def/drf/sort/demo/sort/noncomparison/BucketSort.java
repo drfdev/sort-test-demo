@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class BucketSort<T extends Number> extends AbstractSorter<T> {
+public final class BucketSort<T extends Number> extends AbstractSorter<T> {
     private static final int BUCKET_COUNT = 10;
 
     public BucketSort(@NotNull Comparator<T> comparator) {

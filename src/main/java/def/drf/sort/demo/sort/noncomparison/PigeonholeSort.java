@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class PigeonholeSort extends AbstractSorter<Integer> {
+public final class PigeonholeSort extends AbstractSorter<Integer> {
     public PigeonholeSort(@NotNull Comparator<Integer> comparator) {
         super(comparator);
     }
