@@ -39,7 +39,7 @@ Algorithms:
 
 * **Pigeonhole sort**
 * **Bucket sort** 
-* Counting sort
+* **Counting sort**
 * LSD Radix Sort
 * MSD Radix Sort
 * Spreadsort
