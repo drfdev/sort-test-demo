@@ -44,9 +44,9 @@ Algorithms:
 * ~~MSD Radix Sort~~
 * **Radix Sort**
 * **Spreadsort**
-* Burstsort
+* ~~Burstsort~~
 * Flashsort
-* Postman sort
+* ~~Postman sort~~
 
 **Others:**
 
