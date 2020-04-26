@@ -3,7 +3,6 @@ package def.drf.sort.demo.sort.others;
 import def.drf.sort.demo.metric.IterationCountMetric;
 import def.drf.sort.demo.metric.Metric;
 import def.drf.sort.demo.metric.simple.SimpleMetricBucket;
-import def.drf.sort.demo.sort.noncomparison.PigeonholeSort;
 import org.junit.Before;
 import org.junit.Test;
 
