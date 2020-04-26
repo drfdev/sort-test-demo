@@ -55,7 +55,7 @@ Algorithms:
 * Spaghetti (Poll) sort
 * Sorting network
 * **Bitonic sort**
-* Bogosort
+* **Bogosort**
 * Stooge sort
 
 

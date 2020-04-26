@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Comparator;
 import java.util.List;
 
-public class BitonicSort extends AbstractSorter<Integer> {
+public final class BitonicSort extends AbstractSorter<Integer> {
     public BitonicSort(@NotNull Comparator<Integer> comparator) {
         super(comparator);
     }
