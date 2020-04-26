@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Comparator;
 import java.util.List;
 
-public class BeadSort extends AbstractSorter<Integer> {
+public final class BeadSort extends AbstractSorter<Integer> {
     public BeadSort(@NotNull Comparator<Integer> comparator) {
         super(comparator);
     }

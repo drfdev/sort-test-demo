@@ -51,7 +51,7 @@ Algorithms:
 **Others:**
 
 * **Bead sort**
-* Simple pancake sort 	
+* **Pancake sort**
 * Spaghetti (Poll) sort
 * Sorting network
 * Bitonic sorter
@@ -76,6 +76,7 @@ _Averaged swap count results with random array:_
 * Odd–even sort: ~249351.61
 * Bubble sort: ~249453.17
 * Insertion sort: ~251150.3
+* Pancake sort : ~362078.65
 
 Average number of swaps for a random array with size=1000 (times: 100)
 
