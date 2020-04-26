@@ -43,7 +43,7 @@ Algorithms:
 * ~~LSD Radix Sort~~
 * ~~MSD Radix Sort~~
 * **Radix Sort**
-* Spreadsort
+* **Spreadsort**
 * Burstsort
 * Flashsort
 * Postman sort
