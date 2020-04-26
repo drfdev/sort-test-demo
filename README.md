@@ -56,14 +56,14 @@ Algorithms:
 * Sorting network
 * **Bitonic sort**
 * **Bogosort**
-* Stooge sort
+* **Stooge sort**
 
 
 see also: https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms
 
 ---
 
-_Averaged swap count results with random array:_
+_Averaged swap count results with a random array:_
 
 * Quicksort: ~5717.75 / ~6034.9
 * HeapSort: ~9082.9
