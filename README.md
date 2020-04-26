@@ -50,7 +50,7 @@ Algorithms:
 
 **Others:**
 
-* Bead sort
+* **Bead sort**
 * Simple pancake sort 	
 * Spaghetti (Poll) sort
 * Sorting network
